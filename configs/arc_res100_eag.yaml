@@ -1,0 +1,24 @@
+# general
+batch_size: 128
+input_size: 112
+embd_shape: 512
+sub_name: 'arc_res100_eag'
+backbone_type: 'ResNet101' # 'ResNet50', 'MobileNetV2', 'ResNet101'
+head_type: ArcHead # 'ArcHead', 'NormHead'
+is_ccrop: False # central-cropping or not
+
+# train
+train_dataset: './data/ms1m_bin.tfrecord'
+binary_img: True
+num_classes: 85742
+num_samples: 5994136
+epochs: 30
+base_lr: 0.01
+w_decay: !!float 5e-4
+save_steps: 1000
+
+checkpoints_dir: '/data/training_AGR/training_30_04_20/checkpoints/'
+logs_dir: '/data/training_AGR/training_30_04_20/logs/'
+
+# test
+test_dataset: '/data/datasets/test_datasets'

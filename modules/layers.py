@@ -10,8 +10,10 @@ class BatchNormalization(tf.keras.layers.BatchNormalization):
         if training is None:
             training = tf.constant(False)
         training = tf.logical_and(training, self.trainable)
-        return super().call(x, training)
-
+        try : 
+            return super().call(x, training)
+        except TypeError:
+            return super(tf.keras.layers.BatchNormalization, self).call(x, training)
 
 class ArcMarginPenaltyLogists(tf.keras.layers.Layer):
     """ArcMarginPenaltyLogists"""

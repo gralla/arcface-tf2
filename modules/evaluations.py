@@ -17,15 +17,17 @@ def get_val_pair(path, name):
 
     return carray, issame
 
-
-def get_val_data(data_path):
+def get_val_data(data_path,which_data):
     """get validation data"""
-    lfw, lfw_issame = get_val_pair(data_path, 'lfw_align_112/lfw')
-    agedb_30, agedb_30_issame = get_val_pair(data_path,
-                                             'agedb_align_112/agedb_30')
-    cfp_fp, cfp_fp_issame = get_val_pair(data_path, 'cfp_align_112/cfp_fp')
+    # lfw, lfw_issame = get_val_pair(data_path, 'lfw_align_112/lfw')
+    # agedb_30, agedb_30_issame = get_val_pair(data_path,
+    #                                          'agedb_align_112/agedb_30')
+    # cfp_fp, cfp_fp_issame = get_val_pair(data_path, 'cfp_align_112/cfp_fp')
 
-    return lfw, agedb_30, cfp_fp, lfw_issame, agedb_30_issame, cfp_fp_issame
+    dataset_test, dataset_test_issame = get_val_pair(data_path,which_data)
+
+    # return lfw, agedb_30, cfp_fp, lfw_issame, agedb_30_issame, cfp_fp_issame
+    return dataset_test, dataset_test_issame
 
 
 def ccrop_batch(imgs):
